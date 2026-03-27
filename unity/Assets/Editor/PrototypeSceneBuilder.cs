@@ -12,7 +12,7 @@ public static class PrototypeSceneBuilder
   const string ScenePath = "Assets/Scenes/Prototype.unity";
   const string PhysicsDir = "Assets/Generated/PhysicsMaterials";
 
-  [MenuItem("R SWIPAA V2/Generate Prototype Scene")]
+  [MenuItem("R Swipe League V2/Generate Prototype Scene")]
   public static void Generate()
   {
     EnsureFolder("Assets/Scenes");

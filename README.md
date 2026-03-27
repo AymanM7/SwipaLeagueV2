@@ -1,71 +1,89 @@
-# R SWIPAA V2
+# R Swipe League V2
 
-**Arcade 3D car-ball game:** drive, strike the ball, jump and boost, score through the hoop — with aerial and dunk tiers. Includes a **Unity 6** first-playable and a **React + Tailwind** marketing site.
+### Arcade car-ball meets hoops
 
+Drive a car, hit the ball, chain **jumps** and **boosts**, and score through the goal. **Aerial** touches and **dunks** from the paint zone score higher than grounded goals — miss or get blocked and you earn nothing. Built for a **fast reset** so every possession matters.
+
+---
+
+## About this project
+
+**R Swipe League V2** is a **first-playable** built to answer one question: *does driving + jumping + dunking feel fun in the first two minutes?* The prototype keeps physics **readable** (capped hit assist, tuned damping) so skill reads louder than rng.
+
+A **React + Tailwind** site ships alongside the game so you can pitch the same story on **GitHub** or **Devpost**: demo in Unity, narrative and scoring on the web.
+
+---
+
+## Core loop
+
+**Drive** → **strike the ball** → **move it toward the goal** → **jump / boost / dunk** → **score** → **instant reset**
+
+---
+
+## What you get today
+
+| Deliverable | Notes |
+|-------------|--------|
+| **Unity prototype** | One arena, one car, one ball, one goal, dunk trigger volume, HUD, OOB reset |
+| **Scoring tiers** | **2** grounded goal · **3** aerial · **4** aerial + dunk zone |
+| **Marketing site** | Feature grid, scoring cards, roadmap copy — no WebGL embed yet |
+
+---
+
+## Vision & novelty
+
+**Roadmap (design — not all in this build):**
+
+- **Style chain** — bonus for sequences like wall ride → aerial → dunk  
+- **Dynamic goals** — hoop size / position shifts in overtime  
+- **Arena gadgets** — bounce pads, gravity lanes, rebound walls  
+- **Momentum meter** — short hype bonus after big plays  
+- **1v1 / 2v2** — Photon Fusion or Netcode when feel is locked  
+- **Training mode** — drills for boost lines and dunk timing  
+
+**Why it’s different:** car-soccer **clarity** plus basketball-style **finish timing** and **tiered risk** (ground vs air vs dunk) — arcade speed without muddy ball physics.
 
 ---
 
 ## Table of contents
 
-1. [Overview](#overview)
-2. [What's included](#whats-included)
-3. [Tech stack](#tech-stack)
-4. [Repository structure](#repository-structure)
-5. [Getting started](#getting-started)
-6. [Gameplay & controls](#gameplay--controls)
-7. [Physics tuning](#physics-tuning)
-8. [Roadmap & novelty](#roadmap--novelty)
+1. [Technical — stack](#technical--stack)  
+2. [Technical — repository layout](#technical--repository-layout)  
+3. [Technical — setup & run](#technical--setup--run)  
+4. [Technical — controls & scoring](#technical--controls--scoring)  
+5. [Technical — physics tuning](#technical--physics-tuning)  
+6. [Links](#links)  
 
 ---
 
-## Overview
+## Technical — stack
 
-**R SWIPAA V2** is a fast, readable physics prototype: one arena, one car, one ball, and one goal. The design goal is *easy to learn, hard to master* — tight resets, clear scoring, and ball contact that feels **controlled**, not random.
-
-The companion **web** experience explains the loop, scoring (2 / 3 / 4 points), and planned meta systems for judges or collaborators — the same idea as a **Devpost** submission: a playable demo plus a clear, skimmable story.
-
----
-
-## What's included
-
-| Piece | Description |
-|--------|-------------|
-| **Unity prototype** | Generated arena, arcade car controller, ball + goal triggers, dunk zone, HUD, out-of-bounds reset |
-| **Web homepage** | Vite + React + TypeScript + Tailwind v4 landing page (features, scoring, roadmap copy) |
-| **Editor workflow** | Menu command to (re)build the prototype scene and register it in Build Settings |
-
----
-
-## Tech stack
-
-| Layer | Technologies |
-|--------|----------------|
-| **Game** | Unity **6** (6000 LTS), **Input System**, **UGUI**, 3D physics |
+| Layer | Details |
+|--------|---------|
+| **Game engine** | Unity **6** (6000 LTS), **Input System**, **UGUI**, Unity 3D physics |
 | **Web** | **Vite**, **React**, **TypeScript**, **Tailwind CSS v4** |
-| **Future (planned)** | Multiplayer: Photon Fusion or Netcode for GameObjects · Backend: PlayFab or Firebase |
+| **Planned** | Multiplayer: Photon Fusion / Netcode for GameObjects · Backend: PlayFab / Firebase |
 
 ---
 
-## Repository structure
+## Technical — repository layout
 
 ```text
-├── README.md                 ← You are here
-├── unity/                    ← Open this folder in Unity Hub
+├── README.md
+├── unity/                 Open in Unity Hub
 │   ├── Assets/
-│   │   ├── Scripts/          Gameplay + scoring
-│   │   └── Editor/           Scene generator (menu)
+│   │   ├── Scripts/       Gameplay, scoring, camera
+│   │   └── Editor/        Prototype scene generator
 │   └── ProjectSettings/
-└── web/                      ← Marketing / pitch site
-    └── src/
+└── web/
+    └── src/               Homepage (Vite + React)
 ```
 
 ---
 
-## Getting started
+## Technical — setup & run
 
-### Web (homepage)
-
-From the repo root:
+### Web
 
 ```bash
 cd web
@@ -73,75 +91,50 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (typically **http://localhost:5173**).
-
-**Production build**
+Default URL: **http://localhost:5173**
 
 ```bash
 cd web
 npm run build
 ```
 
-Output: `web/dist/`.
+Artifacts: **`web/dist/`**
 
-### Unity (game prototype)
+### Unity
 
-1. Install **[Unity Hub](https://unity.com/download)** and a **Unity 6** editor (6000 LTS; project targets **6000.0.38f1** or compatible).
-2. **Add** → select the **`unity`** folder in this repo.
-3. Open the project; wait for **Input System** and **UGUI** to import.
-4. Menu: **R SWIPAA V2 → Generate Prototype Scene**  
-   *Re-run after major script changes if you want a fresh scene layout.*
-5. Open **`Assets/Scenes/Prototype.unity`**, press **Play**.
-
-If Hub suggests a project upgrade, accept it unless your team is pinned to a specific patch.
+1. Install **Unity Hub** and a **Unity 6** editor (≥ **6000.0.38f1** or Hub-recommended LTS).  
+2. **Add** the **`unity`** folder.  
+3. Wait for **Input System** + **UGUI** import.  
+4. Menu: **R Swipe League V2 → Generate Prototype Scene**  
+5. Open **`Assets/Scenes/Prototype.unity`** → **Play**.
 
 ---
 
-## Gameplay & controls
+## Technical — controls & scoring
+
+### Inputs
 
 | Input | Action |
 |--------|--------|
 | **W A S D** | Drive / steer |
-| **Space** | Jump · double-jump |
+| **Space** | Jump / double-jump |
 | **Shift** | Boost (cooldown) |
 
 ### Scoring
 
-| Type | Points | Condition (prototype) |
-|------|--------|------------------------|
-| Goal | **2** | Last touch while grounded (not aerial) |
+| Type | Points | Rule (prototype) |
+|------|--------|-------------------|
+| Goal | **2** | Last touch while grounded |
 | Aerial | **3** | Last touch while airborne |
-| Dunk | **4** | Aerial touch **and** contact from **dunk zone** near the hoop |
-
-Misses and blocks → **0**. Ball and car reset after a goal or out-of-bounds.
+| Dunk | **4** | Airborne touch from **dunk zone** |
 
 ---
 
-## Physics tuning
+## Technical — physics tuning
 
-If strikes feel mushy or unfair, tune on the **Car** instance in the generated scene:
+On the **Car** in the generated scene: **move acceleration**, **max speed**, **jump impulse**, **hit assist** / **max hit assist**. On the **Ball**: **mass**, **linear damping**, **BallPrototype** material under `Assets/Generated/PhysicsMaterials/`. Tune one variable at a time.
 
-- **Move acceleration** / **max forward speed**
-- **Jump impulse**
-- **Hit assist impulse** / **max hit assist** (keeps hits readable)
-- **Ball:** `Rigidbody` mass, **linear damping**, **BallPrototype** physic material under `Assets/Generated/PhysicsMaterials/`
-
-Adjust one knob at a time and playtest in short sessions.
-
----
-
-## Roadmap & novelty
-
-**In design (not all implemented in code yet):**
-
-- **Style chain** — combo rewards (e.g. wall ride → aerial → dunk)
-- **Dynamic goals** — hoop changes in overtime
-- **Arena gadgets** — bounce pads, gravity lanes, rebound walls
-- **Momentum meter** — short bonus after big plays
-- **1v1 / 2v2** — networking after feel is locked
-- **Training mode** — drills for boost, reads, dunk timing
-
-**Differentiator:** car-ball **clarity** (tuned contact, caps) combined with **hoop finish** timing and **tiered** scoring — arcade-fast without opaque physics.
+Package mismatch in Hub → use **Upgrade** or align package versions to your editor.
 
 ---
 
@@ -152,8 +145,5 @@ Adjust one knob at a time and playtest in short sessions.
 | Repository | [github.com/AymanM7/car-ball-dunk](https://github.com/AymanM7/car-ball-dunk) |
 | Maintainer | [github.com/AymanM7](https://github.com/AymanM7) |
 
----
+**Devpost:** add a short demo video + screenshots of Play Mode and the homepage; you can paste the **top half** of this README as your story and link the repo for build steps.
 
-### Hackathon / Devpost tip
-
-Add a **~60s demo video** and **2–3 screenshots** (Unity Play Mode + homepage) in your gallery. You can copy sections of this README directly into the Devpost **description** — tables and headings paste cleanly once you switch the editor to markdown (if available).

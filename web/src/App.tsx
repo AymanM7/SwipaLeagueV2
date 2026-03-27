@@ -51,7 +51,7 @@ function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-2 text-white">
             <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
-            <span className="text-sm font-semibold tracking-tight">R SWIPAA V2</span>
+            <span className="text-sm font-semibold tracking-tight">R Swipe League V2</span>
           </a>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-400 sm:flex">
             <a className="transition hover:text-white" href="#loop">
@@ -84,7 +84,7 @@ function App() {
             </p>
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[1.05]">
               <span className="mb-3 block text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                R SWIPAA V2
+                R Swipe League V2
               </span>
               <span className="block text-3xl sm:text-4xl lg:text-5xl">
                 Drive hard.{' '}
@@ -262,7 +262,7 @@ function App() {
       <footer className="relative border-t border-slate-800/80 bg-[#080d14]">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-semibold text-white">R SWIPAA V2</p>
+            <p className="text-sm font-semibold text-white">R Swipe League V2</p>
             <p className="mt-1 text-xs text-slate-500">Unity 6 prototype · React marketing shell</p>
           </div>
           <div className="flex flex-wrap gap-4 text-xs text-slate-400">
